@@ -7,7 +7,7 @@
 ## Windows 桌面版
 
 从 [Releases 下载 Windows 交付 ZIP](https://github.com/yixianchen612-web/CodeAgent/releases/latest)，
-解压后双击 `CodeAgent.exe`。私有仓库的下载需要具有仓库访问权限。
+解压后双击 `CodeAgent.exe`。仓库与发布附件现已公开，可直接查看和下载。
 桌面程序的运行依赖已随 exe 打包，使用 Agent 无需预装 Python。
 
 1. 填写自己的 DeepSeek API Key，保留默认模型和官方 API 地址。
