@@ -1,0 +1,8 @@
+id,short_text,type,diagrams,components,artifacts,tests,rationale
+FR-1,Play game,Functional,UseCaseDiagram;SequenceDiagram1;ActivityDiagram;StateDiagram,GameComponent;QuestionComponent,openapi.yaml;internal.proto;sql/game_ddl.sql;sql/question_ddl.sql,tests/unit/game.test.js;tests/integration/api.test.js,Allows users to play the game
+FR-2,View score,Functional,UseCaseDiagram;SequenceDiagram1,GameComponent,openapi.yaml;sql/game_ddl.sql,tests/unit/game.test.js;tests/integration/api.test.js,Allows users to view their score
+FR-3,Update questions,Functional,UseCaseDiagram;SequenceDiagram2,QuestionComponent;AdminComponent,openapi.yaml;sql/question_ddl.sql,tests/unit/question.test.js;tests/integration/api.test.js,Allows admins to manage questions
+FR-4,View help,Functional,UseCaseDiagram,GameComponent,openapi.yaml,tests/integration/api.test.js,Provides help to users
+NFR-1,Performance,Non-functional,SequenceDiagram1;DeploymentDiagram,GameComponent,internal.proto;k8s/spacefractions-deployment.yaml,tests/integration/api.test.js,Ensures the game responds quickly to user input
+ASR-1,Data durability,Architectural,DeploymentDiagram,QuestionComponent,sql/question_ddl.sql;sql/game_ddl.sql,tests/integration/db.test.js,Ensures that question data is persisted and recoverable
+ASR-2,Security,Architectural,DeploymentDiagram,UserComponent,openapi.yaml,k8s/spacefractions-deployment.yaml,Ensures secure authentication and authorization

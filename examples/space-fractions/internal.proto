@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package spacefractions;
+
+// Internal gRPC contract for the Space Fractions game service.
+// This contract is retained for future microservice decomposition;
+// the current implementation serves the same operations over REST.
+service GameService {
+  rpc Play(PlayRequest) returns (PlayResponse) {}
+  rpc SubmitAnswer(SubmitAnswerRequest) returns (SubmitAnswerResponse) {}
+  rpc GetScore(GetScoreRequest) returns (GetScoreResponse) {}
+}
+
+message PlayRequest {
+  int32 gameId = 1;
+}
+
+message PlayResponse {
+  int32 gameId = 1;
+  string prompt = 2;
+  repeated string options = 3;
+}
+
+message SubmitAnswerRequest {
+  int32 gameId = 1;
+  string answer = 2;
+}
+
+message SubmitAnswerResponse {
+  bool correct = 1;
+  int32 score = 2;
+}
+
+message GetScoreRequest {
+  int32 gameId = 1;
+}
+
+message GetScoreResponse {
+  int32 gameId = 1;
+  int32 score = 2;
+}

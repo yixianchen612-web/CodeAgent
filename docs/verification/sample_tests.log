@@ -1,0 +1,35 @@
+✔ gameController.startGame returns a game (0.945ms)
+✔ gameController.submitAnswer validates answer (0.4964ms)
+✔ gameController.submitAnswer submits an answer (0.1835ms)
+✔ gameController.getScore returns score (0.1739ms)
+✔ gameController.listScores lists scores (0.4167ms)
+✔ questionController.listQuestions lists questions (0.2151ms)
+✔ questionController.createQuestion creates a question (0.1655ms)
+✔ questionController.updateQuestion updates a question (0.1559ms)
+✔ questionController.deleteQuestion deletes a question (1.0177ms)
+✔ userController.register registers a user (0.3561ms)
+✔ userController.login rejects bad credentials (0.2047ms)
+✔ game_ddl.sql defines users and games tables (1.5167ms)
+✔ question_ddl.sql defines questions table (0.4436ms)
+✔ question_ddl.sql seeds starter questions (0.4106ms)
+✔ games table references users table (0.3718ms)
+✔ startGame returns a game with a prompt and options (0.9763ms)
+✔ submitAnswer marks a correct answer and increments score (0.6493ms)
+✔ submitAnswer marks an incorrect answer without incrementing score (0.175ms)
+✔ submitAnswer throws 404 for a missing game (1.215ms)
+✔ getScore returns score and status (0.2086ms)
+✔ normalize trims, lowercases, and removes whitespace (0.1262ms)
+✔ listQuestions returns all questions (0.8154ms)
+✔ getQuestion returns a question by id (0.1696ms)
+✔ getQuestion throws 404 for missing question (0.4334ms)
+✔ createQuestion requires prompt and correctAnswer (0.2302ms)
+✔ createQuestion returns the created question (0.8589ms)
+✔ deleteQuestion throws 404 for missing question (0.2358ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 150.1113

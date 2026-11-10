@@ -1,0 +1,306 @@
+{
+  "language": "nodejs",
+  "summary": "Browser-based Space Fractions game built with Node.js, Express, and PostgreSQL, simplified from microservices to a single deployable service. The app serves a static HTML/JS frontend covering intro, gameplay, score, help, and admin question management, backed by REST APIs and a PostgreSQL database. Includes OpenAPI contract, gRPC contract, SQL DDL, Kubernetes manifest, and traceability matrix.",
+  "directory_tree": [
+    "README.md",
+    "package.json",
+    "Dockerfile",
+    "architecture.md",
+    "openapi.yaml",
+    "internal.proto",
+    "traceability_matrix.csv",
+    ".gitignore",
+    "sql/",
+    "sql/game_ddl.sql",
+    "sql/question_ddl.sql",
+    "k8s/",
+    "k8s/spacefractions-deployment.yaml",
+    "src/",
+    "src/server.js",
+    "src/app.js",
+    "src/db.js",
+    "src/routes/",
+    "src/routes/gameRoutes.js",
+    "src/routes/questionRoutes.js",
+    "src/routes/userRoutes.js",
+    "src/controllers/",
+    "src/controllers/gameController.js",
+    "src/controllers/questionController.js",
+    "src/controllers/userController.js",
+    "src/services/",
+    "src/services/gameService.js",
+    "src/services/questionService.js",
+    "src/models/",
+    "src/models/gameModel.js",
+    "src/models/questionModel.js",
+    "src/models/userModel.js",
+    "public/",
+    "public/index.html",
+    "public/game.html",
+    "public/score.html",
+    "public/help.html",
+    "public/admin.html",
+    "public/css/",
+    "public/css/style.css",
+    "public/js/",
+    "public/js/common.js",
+    "public/js/game.js",
+    "public/js/score.js",
+    "public/js/admin.js",
+    "tests/",
+    "tests/unit/",
+    "tests/unit/game.test.js",
+    "tests/unit/question.test.js",
+    "tests/integration/",
+    "tests/integration/api.test.js",
+    "tests/integration/db.test.js"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "purpose": "Project overview, setup instructions, and architecture decisions including simplifications.",
+      "est_lines": 150,
+      "status": "done"
+    },
+    {
+      "path": "package.json",
+      "purpose": "Node.js dependency declaration with express, pg, dotenv, and test scripts using jest and supertest.",
+      "est_lines": 40,
+      "status": "done"
+    },
+    {
+      "path": "Dockerfile",
+      "purpose": "Container definition for the Node.js application.",
+      "est_lines": 30,
+      "status": "done"
+    },
+    {
+      "path": "architecture.md",
+      "purpose": "Architecture description documenting the simplified single-service design, component responsibilities, and technology justification.",
+      "est_lines": 200,
+      "status": "done"
+    },
+    {
+      "path": "openapi.yaml",
+      "purpose": "OpenAPI 3.0 specification for the Space Fractions REST API.",
+      "est_lines": 120,
+      "status": "done"
+    },
+    {
+      "path": "internal.proto",
+      "purpose": "Protocol Buffers definition for the internal gRPC GameService.",
+      "est_lines": 30,
+      "status": "done"
+    },
+    {
+      "path": "traceability_matrix.csv",
+      "purpose": "CSV mapping FR/NFR/ASR requirements to diagrams, components, artifacts, and tests.",
+      "est_lines": 20,
+      "status": "done"
+    },
+    {
+      "path": ".gitignore",
+      "purpose": "Ignore node_modules and environment files.",
+      "est_lines": 10,
+      "status": "done"
+    },
+    {
+      "path": "sql/game_ddl.sql",
+      "purpose": "DDL for users and games tables.",
+      "est_lines": 50,
+      "status": "done"
+    },
+    {
+      "path": "sql/question_ddl.sql",
+      "purpose": "DDL for questions table referenced by ASR-1.",
+      "est_lines": 50,
+      "status": "done"
+    },
+    {
+      "path": "k8s/spacefractions-deployment.yaml",
+      "purpose": "Kubernetes Deployment and Service manifest for the application.",
+      "est_lines": 80,
+      "status": "done"
+    },
+    {
+      "path": "src/server.js",
+      "purpose": "Entry point that starts the Express server after applying database schema.",
+      "est_lines": 40,
+      "status": "done"
+    },
+    {
+      "path": "src/app.js",
+      "purpose": "Express app configuration, static file serving, and route mounting.",
+      "est_lines": 60,
+      "status": "done"
+    },
+    {
+      "path": "src/db.js",
+      "purpose": "PostgreSQL connection pool and database initialization from SQL files.",
+      "est_lines": 80,
+      "status": "done"
+    },
+    {
+      "path": "src/routes/gameRoutes.js",
+      "purpose": "Express routes for game play and score endpoints.",
+      "est_lines": 80,
+      "status": "done"
+    },
+    {
+      "path": "src/routes/questionRoutes.js",
+      "purpose": "Express routes for question management (admin CRUD).",
+      "est_lines": 80,
+      "status": "done"
+    },
+    {
+      "path": "src/routes/userRoutes.js",
+      "purpose": "Express routes for user registration and login.",
+      "est_lines": 60,
+      "status": "done"
+    },
+    {
+      "path": "src/controllers/gameController.js",
+      "purpose": "HTTP handlers for starting games, submitting answers, and retrieving scores.",
+      "est_lines": 150,
+      "status": "done"
+    },
+    {
+      "path": "src/controllers/questionController.js",
+      "purpose": "HTTP handlers for creating, reading, updating, and deleting questions.",
+      "est_lines": 150,
+      "status": "done"
+    },
+    {
+      "path": "src/controllers/userController.js",
+      "purpose": "HTTP handlers for user registration and authentication.",
+      "est_lines": 100,
+      "status": "done"
+    },
+    {
+      "path": "src/services/gameService.js",
+      "purpose": "Business logic for game flow, answer checking, and score calculation.",
+      "est_lines": 200,
+      "status": "done"
+    },
+    {
+      "path": "src/services/questionService.js",
+      "purpose": "Business logic for question management and retrieval.",
+      "est_lines": 150,
+      "status": "done"
+    },
+    {
+      "path": "src/models/gameModel.js",
+      "purpose": "Data access functions for games table.",
+      "est_lines": 100,
+      "status": "done"
+    },
+    {
+      "path": "src/models/questionModel.js",
+      "purpose": "Data access functions for questions table.",
+      "est_lines": 100,
+      "status": "done"
+    },
+    {
+      "path": "src/models/userModel.js",
+      "purpose": "Data access functions for users table.",
+      "est_lines": 100,
+      "status": "done"
+    },
+    {
+      "path": "public/index.html",
+      "purpose": "Intro/main menu screen with links to game, score, help, and admin.",
+      "est_lines": 80,
+      "status": "done"
+    },
+    {
+      "path": "public/game.html",
+      "purpose": "Gameplay screen showing fractions questions and answer input.",
+      "est_lines": 120,
+      "status": "done"
+    },
+    {
+      "path": "public/score.html",
+      "purpose": "Score display screen showing player's current and past scores.",
+      "est_lines": 80,
+      "status": "done"
+    },
+    {
+      "path": "public/help.html",
+      "purpose": "Help screen with instructions on how to play.",
+      "est_lines": 80,
+      "status": "done"
+    },
+    {
+      "path": "public/admin.html",
+      "purpose": "Admin screen for question CRUD operations.",
+      "est_lines": 120,
+      "status": "done"
+    },
+    {
+      "path": "public/css/style.css",
+      "purpose": "Shared stylesheet for all screens.",
+      "est_lines": 150,
+      "status": "done"
+    },
+    {
+      "path": "public/js/common.js",
+      "purpose": "Shared frontend utilities for API calls and navigation.",
+      "est_lines": 100,
+      "status": "done"
+    },
+    {
+      "path": "public/js/game.js",
+      "purpose": "Client-side logic for gameplay, answer submission, and score updates.",
+      "est_lines": 200,
+      "status": "done"
+    },
+    {
+      "path": "public/js/score.js",
+      "purpose": "Client-side logic to fetch and display scores.",
+      "est_lines": 100,
+      "status": "done"
+    },
+    {
+      "path": "public/js/admin.js",
+      "purpose": "Client-side logic for admin question management.",
+      "est_lines": 150,
+      "status": "done"
+    },
+    {
+      "path": "tests/unit/game.test.js",
+      "purpose": "Unit tests for game service logic.",
+      "est_lines": 150,
+      "status": "done"
+    },
+    {
+      "path": "tests/unit/question.test.js",
+      "purpose": "Unit tests for question service logic.",
+      "est_lines": 120,
+      "status": "done"
+    },
+    {
+      "path": "tests/integration/api.test.js",
+      "purpose": "Integration tests for REST API endpoints using supertest.",
+      "est_lines": 200,
+      "status": "done"
+    },
+    {
+      "path": "tests/integration/db.test.js",
+      "purpose": "Integration tests for database models and schema.",
+      "est_lines": 100,
+      "status": "done"
+    }
+  ],
+  "build_command": "npm install",
+  "run_command": "npm start",
+  "test_command": "npm test",
+  "notes": [
+    "Simplified microservices to a single Node.js/Express service with static frontend to reduce deployment complexity; original components (Game, Question, User) are implemented as internal modules.",
+    "Redis, RabbitMQ, and Elasticsearch are omitted; in-memory caching and synchronous request handling are used for simplicity.",
+    "Authentication is simplified to basic user registration and login without OAuth2; admin role is inferred from a boolean flag.",
+    "The spec referenced sql/question_ddl.sql in ASR-1 but did not list it; both sql/game_ddl.sql and sql/question_ddl.sql are included to satisfy traceability.",
+    "AdminComponent mentioned in component diagram but not in architecture text; implemented as admin.html UI and question management APIs.",
+    "All SQL DDL tables (users, games, questions) are created to ensure real database runs work.",
+    "Frontend screens are implemented as separate static HTML files (index, game, score, help, admin) served by Express."
+  ]
+}

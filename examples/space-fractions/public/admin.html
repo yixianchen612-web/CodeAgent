@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Space Fractions</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>⚙ Question Management</h1>
+    <a class="back-link" href="/">← Menu</a>
+  </header>
+
+  <main class="admin-screen">
+    <section class="admin-form">
+      <h2 id="form-title">Add Question</h2>
+      <input type="hidden" id="question-id" />
+      <label for="prompt">Prompt</label>
+      <input type="text" id="prompt" placeholder="e.g. What is 1/2 + 1/4?" />
+      <label for="options">Options (comma-separated)</label>
+      <input type="text" id="options" placeholder="1/4, 3/4, 2/6, 1/8" />
+      <label for="correct-answer">Correct Answer</label>
+      <input type="text" id="correct-answer" placeholder="3/4" />
+      <label for="difficulty">Difficulty</label>
+      <input type="number" id="difficulty" value="1" min="1" max="5" />
+      <div class="form-actions">
+        <button id="save-question" class="menu-button">Save</button>
+        <button id="cancel-edit" class="menu-button secondary hidden">Cancel</button>
+      </div>
+    </section>
+
+    <section class="admin-list">
+      <h2>Questions</h2>
+      <table class="score-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Prompt</th>
+            <th>Answer</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="question-body">
+          <tr><td colspan="4">Loading questions...</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

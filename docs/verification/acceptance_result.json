@@ -1,0 +1,213 @@
+{
+  "mode": "offline_mock_gui",
+  "frozen": true,
+  "executable": "E:\\vibe coding作业\\CodeAgent\\acceptance\\publish_preflight_v1\\app\\CodeAgent.exe",
+  "executable_sha256": "62c99240e754ce455f4c50a147e4b8f162559a02b1e9a3549babd0264e4c163f",
+  "path": "C:\\WINDOWS\\System32",
+  "external_tools": {
+    "python": null,
+    "py": null,
+    "node": null,
+    "npm": null
+  },
+  "api_used": false,
+  "status": "passed",
+  "dialogs": [
+    {
+      "type": "completion",
+      "title": "完成",
+      "text": "项目生成成功！\n\n项目生成完成，静态检查全部通过；运行时验证未执行（非 Node.js 项目（无 package.json））。生成内容：全部计划文件已生成（Mock）。\n\n运行时验证未执行（非 Node.js 项目（无 package.json））\n\n是否打开输出目录？"
+    }
+  ],
+  "verification_scope": "Current Windows host with restricted process PATH; not a clean OS test.",
+  "report": {
+    "stop_reason": "completed",
+    "steps": 18,
+    "model_calls": 20,
+    "tokens": {
+      "prompt": 3900,
+      "completion": 610
+    },
+    "failures": [],
+    "plan": {
+      "language": "python",
+      "summary": "Space Fractions 分数学习游戏的最小可运行实现（离线 Mock 联调用）。",
+      "directory_tree": [
+        "src/",
+        "src/__init__.py",
+        "src/game.py",
+        "src/questions.py",
+        "src/app.py",
+        "public/",
+        "public/index.html",
+        "public/app.js",
+        "public/style.css",
+        "tests/",
+        "tests/test_game.py",
+        "k8s/",
+        "sql/"
+      ],
+      "files": [
+        {
+          "path": "README.md",
+          "purpose": "项目说明",
+          "est_lines": 30,
+          "status": "done"
+        },
+        {
+          "path": "requirements.txt",
+          "purpose": "依赖声明",
+          "est_lines": 1,
+          "status": "done"
+        },
+        {
+          "path": "public/index.html",
+          "purpose": "浏览器界面（介绍/主菜单/答题/结束反馈）",
+          "est_lines": 40,
+          "status": "done"
+        },
+        {
+          "path": "public/app.js",
+          "purpose": "界面交互与答题流程",
+          "est_lines": 70,
+          "status": "done"
+        },
+        {
+          "path": "public/style.css",
+          "purpose": "界面样式",
+          "est_lines": 30,
+          "status": "done"
+        },
+        {
+          "path": "src/__init__.py",
+          "purpose": "包标记",
+          "est_lines": 1,
+          "status": "done"
+        },
+        {
+          "path": "src/game.py",
+          "purpose": "游戏状态机（Playing/Paused/GameOver）",
+          "est_lines": 60,
+          "status": "done"
+        },
+        {
+          "path": "src/questions.py",
+          "purpose": "题目数据与判分",
+          "est_lines": 40,
+          "status": "done"
+        },
+        {
+          "path": "src/app.py",
+          "purpose": "命令行入口",
+          "est_lines": 30,
+          "status": "done"
+        },
+        {
+          "path": "tests/__init__.py",
+          "purpose": "测试包标记",
+          "est_lines": 1,
+          "status": "done"
+        },
+        {
+          "path": "tests/test_game.py",
+          "purpose": "状态机与判分单元测试",
+          "est_lines": 40,
+          "status": "done"
+        },
+        {
+          "path": "openapi.yaml",
+          "purpose": "API 契约（架构文档交付物）",
+          "est_lines": 25,
+          "status": "done"
+        },
+        {
+          "path": "internal.proto",
+          "purpose": "内部 RPC 契约（架构文档交付物）",
+          "est_lines": 15,
+          "status": "done"
+        },
+        {
+          "path": "k8s/spacefractions-deployment.yaml",
+          "purpose": "K8s 部署清单（架构文档交付物）",
+          "est_lines": 20,
+          "status": "done"
+        },
+        {
+          "path": "sql/game_ddl.sql",
+          "purpose": "数据库 DDL（架构文档交付物）",
+          "est_lines": 6,
+          "status": "done"
+        },
+        {
+          "path": "traceability_matrix.csv",
+          "purpose": "需求追溯矩阵（架构文档交付物）",
+          "est_lines": 4,
+          "status": "done"
+        },
+        {
+          "path": "architecture.md",
+          "purpose": "架构说明（架构文档交付物）",
+          "est_lines": 30,
+          "status": "done"
+        },
+        {
+          "path": "Dockerfile",
+          "purpose": "容器化（选做）",
+          "est_lines": 8,
+          "status": "done"
+        }
+      ],
+      "build_command": "",
+      "run_command": "python -m src.app",
+      "test_command": "python -m unittest",
+      "notes": [
+        "mock 固定计划，覆盖交付物要求",
+        "由 MockLLMClient 驱动"
+      ]
+    },
+    "output_dir": "E:\\vibe coding作业\\CodeAgent\\acceptance\\publish_preflight_v1\\output\\generated_20261111_015605",
+    "message": "项目生成完成，静态检查全部通过；运行时验证未执行（非 Node.js 项目（无 package.json））。生成内容：全部计划文件已生成（Mock）。",
+    "verification": {
+      "status": "skipped",
+      "detail": "非 Node.js 项目（无 package.json）"
+    }
+  },
+  "output_files": [
+    "Dockerfile",
+    "README.md",
+    "architecture.md",
+    "internal.proto",
+    "k8s/spacefractions-deployment.yaml",
+    "openapi.yaml",
+    "project_plan.json",
+    "public/app.js",
+    "public/index.html",
+    "public/style.css",
+    "requirements.txt",
+    "run_report.json",
+    "sql/game_ddl.sql",
+    "src/__init__.py",
+    "src/app.py",
+    "src/game.py",
+    "src/questions.py",
+    "tests/__init__.py",
+    "tests/test_game.py",
+    "traceability_matrix.csv"
+  ],
+  "client_class": "MockLLMClient",
+  "checks": {
+    "packaged_executable": true,
+    "mock_client": true,
+    "task_completed": true,
+    "no_reported_failures": true,
+    "readme": true,
+    "dependencies": true,
+    "tests": true,
+    "source": true,
+    "plan_and_report": true,
+    "verification_truthful": true,
+    "not_using_external_tools": true
+  },
+  "screenshot_saved": true,
+  "elapsed_seconds": 0.829
+}

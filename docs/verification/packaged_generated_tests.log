@@ -1,0 +1,11 @@
+test_correct_answer_scores (test_game.TestGame.test_correct_answer_scores) ... ok
+test_game_over_after_all_questions (test_game.TestGame.test_game_over_after_all_questions) ... ok
+test_initial_state (test_game.TestGame.test_initial_state) ... ok
+test_pause_resume (test_game.TestGame.test_pause_resume) ... ok
+test_question_check (test_game.TestGame.test_question_check) ... ok
+test_wrong_answer (test_game.TestGame.test_wrong_answer) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

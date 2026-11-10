@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Play — Space Fractions</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>🚀 Space Fractions</h1>
+    <a class="back-link" href="/">← Menu</a>
+  </header>
+
+  <main class="game-screen">
+    <div class="score-bar">
+      <span>Score: <strong id="score">0</strong></span>
+      <span>Question <span id="question-number">1</span>/5</span>
+    </div>
+
+    <div id="prompt" class="prompt">Loading question...</div>
+
+    <div id="options" class="options"></div>
+
+    <div id="feedback" class="feedback" aria-live="polite"></div>
+
+    <div id="game-over" class="game-over hidden">
+      <h2>Game Over!</h2>
+      <p>Final score: <strong id="final-score">0</strong></p>
+      <a class="menu-button" href="/score.html">View Scores</a>
+      <button id="play-again" class="menu-button">Play Again</button>
+    </div>
+  </main>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# CodeAgent 依赖声明
+# 运行时：零第三方依赖（仅 Python 标准库 + tkinter）
+# 构建 exe 时：需要 pyinstaller（在 .venv 中安装）
+
+pyinstaller>=6.0

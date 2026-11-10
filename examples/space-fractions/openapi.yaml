@@ -1,0 +1,280 @@
+openapi: 3.0.0
+info:
+  title: Space Fractions API
+  description: API for the Space Fractions game
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+paths:
+  /api/play:
+    post:
+      summary: Start a new game
+      tags: [Game]
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: integer
+      responses:
+        '200':
+          description: Game started
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  gameId:
+                    type: integer
+                    description: Game ID
+                  prompt:
+                    type: string
+                  options:
+                    type: array
+                    items:
+                      type: string
+                  score:
+                    type: integer
+  /api/play/{gameId}/answer:
+    post:
+      summary: Submit an answer for the current question
+      tags: [Game]
+      parameters:
+        - name: gameId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [answer]
+              properties:
+                answer:
+                  type: string
+      responses:
+        '200':
+          description: Answer evaluated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  correct:
+                    type: boolean
+                  score:
+                    type: integer
+                  gameOver:
+                    type: boolean
+                  nextPrompt:
+                    type: string
+                  nextOptions:
+                    type: array
+                    items:
+                      type: string
+  /api/score/{gameId}:
+    get:
+      summary: Get the score for a game
+      tags: [Game]
+      parameters:
+        - name: gameId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Current score
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  gameId:
+                    type: integer
+                  score:
+                    type: integer
+                  status:
+                    type: string
+  /api/scores:
+    get:
+      summary: List recent scores
+      tags: [Game]
+      responses:
+        '200':
+          description: List of scores
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    gameId:
+                      type: integer
+                    score:
+                      type: integer
+                    createdAt:
+                      type: string
+  /api/questions:
+    get:
+      summary: List all questions
+      tags: [Questions]
+      responses:
+        '200':
+          description: List of questions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Question'
+    post:
+      summary: Create a question (admin)
+      tags: [Questions]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuestionInput'
+      responses:
+        '201':
+          description: Question created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Question'
+  /api/questions/{id}:
+    put:
+      summary: Update a question (admin)
+      tags: [Questions]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuestionInput'
+      responses:
+        '200':
+          description: Question updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Question'
+    delete:
+      summary: Delete a question (admin)
+      tags: [Questions]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Question deleted
+  /api/users/register:
+    post:
+      summary: Register a new user
+      tags: [Users]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [username, password]
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '201':
+          description: User registered
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  username:
+                    type: string
+                  isAdmin:
+                    type: boolean
+  /api/users/login:
+    post:
+      summary: Log in a user
+      tags: [Users]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [username, password]
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  username:
+                    type: string
+                  isAdmin:
+                    type: boolean
+components:
+  schemas:
+    Question:
+      type: object
+      properties:
+        id:
+          type: integer
+        prompt:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        correctAnswer:
+          type: string
+        difficulty:
+          type: integer
+    QuestionInput:
+      type: object
+      required: [prompt, options, correctAnswer]
+      properties:
+        prompt:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        correctAnswer:
+          type: string
+        difficulty:
+          type: integer
