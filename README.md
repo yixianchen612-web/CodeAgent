@@ -46,7 +46,7 @@ Node.js 项目的自动运行时验证依赖本机 Node/npm，无法执行时会
 .\build_exe.bat
 ```
 
-构建产物为 `dist/CodeAgent.exe`。源码、输入文件和测试均保存在仓库内部。
+打包完成后，可执行文件保存在项目根目录的 dist 文件夹中，文件名为 CodeAgent.exe。源码、输入文件和测试均保存在仓库内部。
 当前 Agent 测试为 **141/141 通过**。
 
 验收样例位于 [examples/space-fractions](examples/space-fractions/README.md)，
